@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  app:
+    build: ./
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - mysql
+    expose:
+      - 3000
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_DATABASE=nyblecraftTest
+    ports:
+      - 3306:3306
+    expose:
+      - 3306

@@ -1,0 +1,1 @@
+curl localhost:3000/api/user/alice@mail.com

@@ -1,0 +1,53 @@
+{
+    "name": "nyblecraft-test",
+    "version": "1.0.0",
+    "description": "Тестовое задание Back-end. 0.Typescript 1. таблица user - поля: (email, firstName, lastName, image(string), pdf(binary)) 2. crud операции над user 3. загрузка картинки на сервер 4. создать post запрос на который генерируется pdf юзера который находится по email(передать в теле) 5. далее функция находит пользователя в базе по email 6. генерит pdf файл вида firstName + lastName + image 7. сохраняет pdf файл в поле pdf базы данных- возвращает пользователю результат в виде JSON (true/false). 8. Залить на гит (edited) Условия 1. node fraemwork + orm + relation db (edited) 2. авторизация 3. бд и приложение должно работать в Docker",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LvovNikita/nyblecraft-test.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/LvovNikita/nyblecraft-test/issues"
+    },
+    "homepage": "https://github.com/LvovNikita/nyblecraft-test#readme",
+    "devDependencies": {
+        "@types/bcrypt": "^5.0.0",
+        "@types/express": "^4.17.17",
+        "@types/express-session": "^1.17.7",
+        "@types/multer": "^1.4.7",
+        "@types/node": "^20.0.0",
+        "@types/passport-local": "^1.0.35",
+        "@types/pdfkit": "^0.12.9",
+        "@typescript-eslint/eslint-plugin": "^5.59.2",
+        "@typescript-eslint/parser": "^5.59.2",
+        "eslint": "^8.39.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-n": "^15.7.0",
+        "eslint-plugin-promise": "^6.1.1",
+        "nodemon": "^2.0.22",
+        "prisma": "^4.13.0",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "@prisma/client": "^4.13.0",
+        "bcrypt": "^5.1.0",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "express-session": "^1.17.3",
+        "express-validator": "^7.0.1",
+        "multer": "^1.4.5-lts.1",
+        "passport": "^0.6.0",
+        "passport-local": "^1.0.0",
+        "pdfkit": "^0.13.0"
+    }
+}
