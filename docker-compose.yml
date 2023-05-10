@@ -1,21 +1,45 @@
-version: '3.9'
-
+version: "3.9"
 services:
-  app:
-    build: ./
-    restart: always
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    hostname: postgres
     ports:
-      - 3000:3000
-    depends_on:
-      - mysql
-    expose:
-      - 3000
-  mysql:
-    image: mysql:8.0
+      - 5432:5432
     environment:
-      - MYSQL_ROOT_PASSWORD=12345
-      - MYSQL_DATABASE=nyblecraftTest
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: Test
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    depends_on:
+      - postgres
     ports:
-      - 3306:3306
-    expose:
-      - 3306
+      - "5555:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    restart: unless-stopped
+
+  prisma-postgres-api:
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: prisma-postgres-api
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    restart: always
+
+volumes:
+  postgres-data:
+  pgadmin-data:

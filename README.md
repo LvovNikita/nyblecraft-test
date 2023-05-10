@@ -1,16 +1,13 @@
 # Тестовое задание
 
-* DB: MySQL
+* DB: PostgreSQL
 * ORM: Prisma
 
-# Для запуска:
-
-В .env-файле указать DATABASE_URL=mysql://...
+## Для запуска:
 
 ```
-npx prisma generate
-npx prisma migrate dev --name init
-npm run dev
+docker compose up --build
+docker exec -it prisma-postgres-api npx prisma migrate dev --name init --schema ../prisma/schema.prisma
 ```
 
 ## CRUD-операции над пользователями
